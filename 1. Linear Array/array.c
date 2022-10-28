@@ -27,12 +27,12 @@ void menu() {
     printf("[2]Delete an element\n");
     printf("[3]Find location of an element\n");
     printf("[4]Display elements of an array\n");
-    printf("==========================================================\n");
+    printf("=======================================================================\n");
 }
 void choice_system() {
     printf("Enter your choice: ");
     scanf("%d", &choice);
-    printf("-----------------------------------------------------------\n");
+    printf("-----------------------------------------------------------------------\n");
     switch(choice) {
         case 1: 
             insert();
@@ -67,12 +67,12 @@ int main() {
 void insert() {
     printf("Enter the element you want to enter: ");
     scanf("%d", &elm);
-    printf("Enter the index of new element: ");
+    printf("Enter the posittion of new element: ");
     scanf("%d", &pos);
     size++;
     int temp = elm;
     int temp1;
-    for(i = pos; i < size; i++) {
+    for(i = pos-1; i < size; i++) {
         temp1 = arr[i];
         arr[i] = temp;
         temp = temp1;
@@ -109,27 +109,28 @@ void location() {
         printf("Your required element '%d' is at place number '%d' ", elm, pos);
     else
         printf("Your required element '%d' not found in array.", elm);
-    printf("\n---------------------------------------------------------------------\n");
+    printf("\n-----------------------------------------------------------------------\n");
 }
 void display_array() {
     printf("Your Array is: ");
     for (i = 0; i < size; i++) 
         printf("%d ", arr[i]);
-    printf("\n---------------------------------------------------------------------\n");
+    printf("\n-----------------------------------------------------------------------\n");
 }
 void again() {
-    char ch;
-    printf("\nPress y to enter another choice or anything else to exit.");
-    scanf("%c", &ch);
-    if (ch == 'y')
+    int ch;
+    printf("\nPress [5] to enter another choice or anything else to exit.\n");
+    scanf("%d", &ch);
+    printf("-----------------------------------------------------------------------\n");
+    if (ch == 5)
         choice_system();
     else
         exit_screen();
 }
 void exit_screen() { 
-    printf("\n\n");
-    printf("======================================================================\n");
+    printf("\n");
+    printf("=======================================================================\n");
     printf("Thank you for Visiting Linear Array Operations Center. Have a Nice day.\n\n");
     printf("THE END\n");
-    printf("======================================================================\n");
+    printf("=======================================================================\n");
 }
